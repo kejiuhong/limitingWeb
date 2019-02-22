@@ -1,27 +1,15 @@
 <template>
   <section class="header">
-    <div class="t-header">
-      <div class="t-header-left">
-          <div class="iconfont back-icon">&#xe624;</div>
+      <div class="header-left">
+        <div class="iconfont back-icon">&#xe624;</div>
       </div>
-      <div class="t-header-address">
-            旅游度假
-            <span class="address">
-                .成都站
-                <span class="arrow-address iconfont">&#xe623;</span>
-            </span>
-       </div>
-      <div class="t-header-right">
-            <span class="iconfont shopping-icon">&#xe698;</span>
-            <span class="iconfont shopping-icon">&#xe69b;</span>
+      <div class="header-search">
+        <span class="iconfont">&#xe6ac;</span>
+        Enter the City/Scenic spot/Play the theme
       </div>
-    </div>
-    <div class="search-header">
-        <div class="search">
-            <span class="iconfont">&#xe6ac;</span>
-            搜索目的地、主题、景色
-        </div>
-    </div>
+      <div class="header-address">
+        成都<span class="arrow-address iconfont">&#xe623;</span>
+      </div>
   </section>
 </template>
 
@@ -36,51 +24,33 @@ export default {
     .header
         width:100%
         height:1.27rem
-        .t-header
-            display:flex
-            width:7.9rem
-            height:.93rem
-            line-height:.93rem
-            padding:.1rem .2rem
-            .t-header-left
-                float:left
-                width:.84rem
-                .back-icon
-                    font-size:.4rem
-            .t-header-address
-                flex:1
-                text-align:center
-                line-height.93rem
-                font-size:.29rem
-                color:$textColor
-                font-weight:400
-                .address
-                    color:$titleTextColor
-                    position:relative
-                    .arrow-address
-                        position:relative
-                        top:.05rem
-                        left:-.1rem
-                        color:$textColor
-                        font-size:.45rem
-            .t-header-right
-                float:right
-                min-width:.98rem
-                span
-                    padding-right:.3rem
-                .shopping-icon
-                    font-size:.4rem
-        .search-header
+        display:flex
+        background:#00bcd4
+        height:0
+        padding-bottom:.93rem
+        line-height:.93rem
+        color:#fff
+        font-size:0.32rem
+        position:relative
+        .header-left
+            width:0.78rem
             text-align:center
-            .search
-                display:inline-block
-                width:7.32rem
-                height:.6rem
-                border:.02rem solid #afadad
-                border-radius:.4rem
-                color:#afadad
-                text-align:left
-                line-height:.6rem
-                padding-left:.2rem
-                font-size:.21rem
+            .back-icon
+                font-size:0.44rem
+        .header-search
+            flex:1
+            width:100%
+            height:0
+            padding-bottom:.62rem
+            line-height:.62rem
+            padding-left:.04rem
+            background:#fff
+            border-radius:.1rem
+            color:$textColor
+            font-size:.28rem
+            position:relative
+            top:.15rem
+        .header-address
+            width:1.32rem
+            text-align:center
 </style>
