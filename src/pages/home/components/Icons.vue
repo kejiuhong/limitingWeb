@@ -9,7 +9,7 @@
             </swiper-slide>
             <div class="swiper-pagination"  slot="pagination"></div>
         </swiper>
-    </div>    
+    </div>
 </template>
 
 <script>
@@ -19,7 +19,7 @@ export default {
     return {
       swiperOption: {
         pagination: {
-            el: '.swiper-pagination'
+          el: '.swiper-pagination'
         }
       },
       iconList: [{
@@ -54,7 +54,7 @@ export default {
         id: '0009',
         imgUrl: 'http://img1.qunarzz.com/piao/fusion/1611/a9/ffc620dbda9b9c02.png',
         desc: '一日游'
-      },{
+      }, {
         id: '0010',
         imgUrl: 'http://img1.qunarzz.com/piao/fusion/1611/a9/ffc620dbda9b9c02.png',
         desc: '一日游'
@@ -117,4 +117,5 @@ export default {
                 text-align: center
                 color:$titleTextColor
                 ellipsis()
+                font-size:.26rem
 </style>
