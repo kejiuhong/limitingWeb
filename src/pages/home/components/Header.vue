@@ -8,14 +8,17 @@
         Enter the City/Scenic spot/Play the theme
       </div>
       <div class="header-address">
-        成都<span class="arrow-address iconfont">&#xe623;</span>
+        {{this.city}}<span class="arrow-address iconfont">&#xe623;</span>
       </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: {
+    city: String
+  }
 }
 </script>
 
@@ -47,7 +50,7 @@ export default {
             background:#fff
             border-radius:.1rem
             color:$textColor
-            font-size:.28rem
+            font-size:.24rem
             position:relative
             top:.15rem
         .header-address

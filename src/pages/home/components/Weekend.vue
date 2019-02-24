@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="recommend-title">周末去哪儿</div>
+    <div class="weekend-title">周末去哪儿</div>
     <ul>
-      <li class="recommend-content border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="weekend-content" v-for="item of weekend" :key="item.id">
         <img class="re-content-img" :src="item.imgUrl">
         <div class="re-content-desc">
           <p class="re-content-desc-title">{{item.title}}</p>
@@ -16,25 +16,8 @@
 <script>
 export default {
   name: 'HomeWeekend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/9f/f585152825459.jpg_r_640x214_5d46e4cc.jpg',
-        title: '大连圣亚海洋世界',
-        desc: '浪漫大连首站，浪漫的海洋主题乐园'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/9f/f585152825459.jpg_r_640x214_5d46e4cc.jpg',
-        title: '大连圣亚海洋世界',
-        desc: '浪漫大连首站，浪漫的海洋主题乐园'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/9f/f585152825459.jpg_r_640x214_5d46e4cc.jpg',
-        title: '大连圣亚海洋世界',
-        desc: '浪漫大连首站，浪漫的海洋主题乐园'
-      }]
-    }
+  props: {
+    weekend: Array
   }
 }
 </script>
@@ -42,7 +25,7 @@ export default {
 <style lang="stylus" scoped>
   @import '~styles/varibles.styl'
   @import '~styles/mixins.styl'
-  .recommend-title
+  .weekend-title
     width:100%
     height:0
     padding-bottom:.8rem
@@ -51,7 +34,7 @@ export default {
     color:$titleTextColor
     background:#f9f6f6
     margin-top:.3rem
-  .recommend-content
+  .weekend-content
     overflow:hidden
     margin-bottom:.1rem
     .re-content-img

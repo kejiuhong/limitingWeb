@@ -2,7 +2,7 @@
   <div>
     <div class="recommend-title">猜你喜欢</div>
     <ul>
-      <li class="recommend-content border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="recommend-content border-bottom" v-for="item of recommend" :key="item.id">
         <img class="re-content-img" :src="item.imgUrl">
         <div class="re-content-desc">
           <p class="re-content-desc-title">{{item.title}}</p>
@@ -17,25 +17,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_140x140_73fda71d.jpg',
-        title: '大连圣亚海洋世界',
-        desc: '浪漫大连首站，浪漫的海洋主题乐园'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_140x140_73fda71d.jpg',
-        title: '大连圣亚海洋世界',
-        desc: '浪漫大连首站，浪漫的海洋主题乐园'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_140x140_73fda71d.jpg',
-        title: '大连圣亚海洋世界',
-        desc: '浪漫大连首站，浪漫的海洋主题乐园'
-      }]
-    }
+  props: {
+    recommend: Array
   }
 }
 </script>
@@ -54,6 +37,7 @@ export default {
     display:flex
     height:1.9rem
     overflow:hidden
+    margin-top: .1rem;
     .re-content-img
       width:1.7rem
       height:1.7rem
