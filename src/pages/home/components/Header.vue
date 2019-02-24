@@ -7,9 +7,11 @@
         <span class="iconfont">&#xe6ac;</span>
         Enter the City/Scenic spot/Play the theme
       </div>
-      <div class="header-address">
-        {{this.city}}<span class="arrow-address iconfont">&#xe623;</span>
-      </div>
+      <router-link to="/city">
+        <div class="header-address">
+          {{this.city}}<span class="arrow-address iconfont">&#xe623;</span>
+        </div>
+      </router-link>
   </section>
 </template>
 
@@ -28,7 +30,7 @@ export default {
         width:100%
         height:1.27rem
         display:flex
-        background:#00bcd4
+        background:$bgColor
         height:0
         padding-bottom:.93rem
         line-height:.93rem
@@ -56,4 +58,5 @@ export default {
         .header-address
             width:1.32rem
             text-align:center
+            color:#fff
 </style>
