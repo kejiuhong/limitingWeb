@@ -28,7 +28,7 @@ export default {
     @import '~styles/varibles.styl'
     .header
         width:100%
-        height:1.27rem
+        height:$headerH
         display:flex
         background:$bgColor
         height:0
