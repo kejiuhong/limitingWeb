@@ -23,4 +23,5 @@ export default {
       line-height:.62rem
       padding:0 .1rem
       text-align:center
+      border-radius:.05rem
 </style>
