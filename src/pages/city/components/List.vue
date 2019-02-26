@@ -15,7 +15,7 @@
           </ul>
         </div>
       </div>
-      <div class="location" v-for="(item,key) of list" :key="key">
+      <div class="location" v-for="(item,key) of list" :key="key" :ref="key">
         <div class="title border-topbottom">{{key}}</div>
         <div class="button-list">
           <ul>
@@ -34,10 +34,20 @@ export default {
   name: 'List',
   props: {
     hot: Array,
-    list: Object
+    list: Object,
+    letter: String
+  },
+  watch: {
+    letter () {
+      if (this.letter) {
+        const element = this.$refs[this.letter][0]
+        // console.log(element)
+        this.scroll.scrollToElement(element)
+      }
+    }
   },
   mounted () {
-    this.scroll = new Bscroll(this.$refs.wrapper,{click:true})
+    this.scroll = new Bscroll(this.$refs.wrapper, {click: true})
   }
 }
 </script>
