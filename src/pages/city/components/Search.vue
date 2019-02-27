@@ -3,9 +3,9 @@
     <div class="city-search">
       <input class="search" type="text" placeholder="enter your city name" v-model="inputValue">
     </div>
-    <div class="keyworld" v-show="inputValue">
+    <div class="keyworld" v-show="inputValue" ref="keyworldList">
       <ul>
-        <li class="keyworldList border-bottom" v-for="item of searchList" :key="item.id">{{item.name}}</li>
+        <li class="keyworldList border-bottom" v-for="item of searchList" :key="item.id" @click="handleClickSearch(item.name)">{{item.name}}</li>
         <li class="keyworldList border-bottom" v-show="hasNoData">Do not found matching data</li>
       </ul>
     </div>
@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import Bscroll from 'better-scroll'
+import { mapMutations } from 'vuex'
 export default {
   name: 'Search',
   props: {
@@ -29,6 +31,14 @@ export default {
     hasNoData () {
       return !this.searchList.length
     }
+  },
+  methods: {
+    handleClickSearch (e) {
+      this.changeCity(e)
+      this.$router.push('/')
+      this.inputValue = ''
+    },
+    ...mapMutations(['changeCity'])
   },
   watch: {
     inputValue () {
@@ -53,6 +63,9 @@ export default {
         this.searchList = result
       }, 100)
     }
+  },
+  mounted () {
+    this.scroll = new Bscroll(this.$refs.keyworldList, {click: true})
   }
 }
 </script>
