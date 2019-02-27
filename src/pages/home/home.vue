@@ -9,12 +9,13 @@
 </template>
 
 <script>
+import axios from 'axios'
 import HomeHeader from './components/Header'
 import HomeSwiper from './components/Swiper'
 import HomeIcon from './components/Icons'
 import HomeRecommend from './components/Recommend'
 import HomeWeekend from './components/Weekend'
-import axios from 'axios'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Home',
@@ -27,16 +28,21 @@ export default {
   },
   data () {
     return {
-      city: '',
       swiperList: [],
       iconList: [],
       recommendList: [],
-      weekendList: []
+      weekendList: [],
+      updatePage: ''
     }
+  },
+  computed: {
+    ...mapState({
+      city: 'currentCity'
+    })
   },
   methods: {
     getHomeInfo () {
-      axios.get('/api/index.json')
+      axios.get('/api/index.json?city=' + this.city)
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
@@ -44,7 +50,6 @@ export default {
       res = res.data
       if (res.ret && res.data) {
         const data = res.data
-        this.city = data.city
         this.recommendList = data.recommendList
         this.swiperList = data.swiperList
         this.weekendList = data.weekendList
@@ -53,7 +58,14 @@ export default {
     }
   },
   mounted () {
+    this.updatePage = this.city
     this.getHomeInfo()
+  },
+  activated () {
+    if (this.updatePage !== this.city) {
+      this.updatePage = this.city
+      this.getHomeInfo()
+    }
   }
 }
 </script>
