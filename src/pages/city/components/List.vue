@@ -4,14 +4,14 @@
       <div class="location">
         <div class="title border-topbottom">当前位置</div>
         <div class="button-list">
-          <div class="button">成都</div>
+          <div class="button">{{this.current}}</div>
         </div>
       </div>
       <div class="location">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
           <ul>
-            <li class="button" v-for="item of hot" :key="item.id">{{item.name}}</li>
+            <li class="button" v-for="item of hot" :key="item.id" @click="handleClickCurrenty(item.name)">{{item.name}}</li>
           </ul>
         </div>
       </div>
@@ -19,7 +19,7 @@
         <div class="title border-topbottom">{{key}}</div>
         <div class="button-list">
           <ul>
-            <li class="list border-bottom" v-for="innerItem of item" :key="innerItem.id">{{innerItem.name}}</li>
+            <li class="list border-bottom" v-for="innerItem of item" :key="innerItem.id" @click="handleClickCurrenty(innerItem.name)">{{innerItem.name}}</li>
           </ul>
         </div>
       </div>
@@ -29,6 +29,7 @@
 
 <script>
 import Bscroll from 'better-scroll'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'List',
@@ -36,6 +37,22 @@ export default {
     hot: Array,
     list: Object,
     letter: String
+  },
+  computed: {
+    ...mapState({
+      current: 'currentCity'
+    })
+  },
+  methods: {
+    handleClickCurrenty (e) {
+      // console.log(e)
+      // put the selected address in the current location
+      // this.$store.commit('changeCity', e)
+      this.changeCity(e)
+      // selected address back home
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCity'])
   },
   watch: {
     letter () {

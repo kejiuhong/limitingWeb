@@ -9,17 +9,20 @@
       </div>
       <router-link to="/city">
         <div class="header-address">
-          {{this.city}}<span class="arrow-address iconfont">&#xe623;</span>
+          {{this.current}}<span class="arrow-address iconfont">&#xe623;</span>
         </div>
       </router-link>
   </section>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'HomeHeader',
-  props: {
-    city: String
+  computed: {
+    ...mapState({
+      current: 'currentCity'
+    })
   }
 }
 </script>
@@ -56,7 +59,9 @@ export default {
             position:relative
             top:.15rem
         .header-address
-            width:1.32rem
+            padding:0 .1rem
+            min-width:1.32rem
             text-align:center
             color:#fff
+            font-size:.28rem
 </style>
