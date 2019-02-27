@@ -23,7 +23,9 @@ export default {
   },
   data () {
     return {
-      status: false
+      status: false,
+      startY: 0,
+      timer: null
     }
   },
   computed: {
@@ -35,6 +37,10 @@ export default {
       return letters
     }
   },
+  updated () {
+    this.startY = this.$refs['A'][0].offsetTop
+    // console.log(this.startY)
+  },
   methods: {
     handleLetterClick (e) {
       // console.log(e.target.innerText)
@@ -45,13 +51,17 @@ export default {
     },
     handleTouchMove (e) {
       if (this.status) {
-        const startY = this.$refs['A'][0].offsetTop
-        const touchY = e.touches[0].clientY - 79
-        const index = Math.floor((touchY - startY) / 20)
-        // console.log(this.letter)
-        if (index >= 0 && index <= this.letter.length) {
-          this.$emit('change', this.letter[index])
+        if (this.timer) {
+          clearTimeout(this.timer)
         }
+        this.timer = setTimeout(() => {
+          const touchY = e.touches[0].clientY - 79
+          const index = Math.floor((touchY - this.startY) / 20)
+          // console.log(this.startY)
+          if (index >= 0 && index <= this.letter.length) {
+            this.$emit('change', this.letter[index])
+          }
+        }, 16)
       }
     },
     handleTouchEnd () {
