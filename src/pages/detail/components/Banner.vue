@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <div class="wrapper" @click="handleClickImgDetail">
+  <div class="wrapper">
+    <router-link tag="div" to="/" class="back-home iconfont">&#xe624;</router-link>
+    <div class="wrapper-banner" @click="handleClickImgDetail">
       <img class="bannerImg" src="//img1.qunarzz.com/sight/p0/201403/10/1f873ebe7db4e41e31b2726c6a9e01a4.jpg_600x330_2d4f4fe7.jpg">
       <div class="title">花水湾第一村温泉</div>
       <div class="num"><span class="arrow-address iconfont">&#xe623;</span>5</div>
@@ -34,30 +35,45 @@ export default {
 
 <style lang="stylus" scoped>
   .wrapper
-    overflow:hidden
-    width:100%
-    height:0
-    padding-bottom:55%
-    position:relative
-    .bannerImg
-      width:100%
-    .title
+    position: relative
+    .back-home
+      z-index:2
       position:absolute
+      top:.1rem
       left:.2rem
-      bottom:.36rem
-      font-size:.36rem
-      color:#fff
-      text-shadow:0 1px 2px rgba(0,0,0,0.70)
-    .num
-      position:absolute
-      width:1.2rem
-      height:.4rem
-      line-height:.4rem
+      width:.72rem
+      height:.72rem
+      line-height:.72rem
+      border-radius:50%
+      background:rgba(0,0,0,.5rem)
       text-align:center
-      left:.2rem
-      bottom:.86rem
-      font-size:.24rem
+      font-size:0.44rem
       color:#fff
-      background:rgba(0,0,0,.5)
-      border-radius:.2rem
+    .wrapper-banner
+      overflow:hidden
+      width:100%
+      height:0
+      padding-bottom:55%
+      position:relative
+      .bannerImg
+        width:100%
+      .title
+        position:absolute
+        left:.2rem
+        bottom:.36rem
+        font-size:.36rem
+        color:#fff
+        text-shadow:0 1px 2px rgba(0,0,0,0.70)
+      .num
+        position:absolute
+        width:1.2rem
+        height:.4rem
+        line-height:.4rem
+        text-align:center
+        left:.2rem
+        bottom:.86rem
+        font-size:.24rem
+        color:#fff
+        background:rgba(0,0,0,.5)
+        border-radius:.2rem
 </style>
