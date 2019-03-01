@@ -1,5 +1,5 @@
 <template>
-    <div class="imgDetail">
+    <div class="imgDetail" @click="handleClickClose">
       <div class="imgDetail-wrapper">
         <swiper :options="swiperOption">
             <!-- slides -->
@@ -22,7 +22,9 @@ export default {
         pagination: {
           el: '.swiper-pagination',
           type: 'fraction'
-        }
+        },
+        observer: true,
+        observeParents: true
       },
       imges: [
         {id: '0001', imgUrl: 'http://img1.qunarzz.com/sight/p0/201403/10/f8495d302108ff902689880c553d4999.jpg_r_800x800_232f026a.jpg'}, {
@@ -30,11 +32,18 @@ export default {
           id: '0003', imgUrl: 'http://img1.qunarzz.com/sight/p0/201403/10/1f873ebe7db4e41e31b2726c6a9e01a4.jpg_r_800x800_4a36ea30.jpg'}
       ]
     }
+  },
+  methods: {
+    handleClickClose () {
+      this.$emit('changeClose')
+    }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
+  .imgDetail >>> .swiper-container
+    overflow: unset
   .imgDetail
     z-index:99
     position:fixed
@@ -48,6 +57,8 @@ export default {
     justify-content:center
     .imgDetail-wrapper
       width:100%
+      height:0
+      padding-bottom:100%
       .detail-img
         width:100%
       .swiper-pagination
