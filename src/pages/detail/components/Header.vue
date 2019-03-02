@@ -3,6 +3,7 @@
     <router-link tag="div" to="/" class="back-home-banner iconfont" v-if="backhomeFading">&#xe624;</router-link>
     <div class="detail-header" v-if="headerFading" :style="opacityStyle">
       <router-link tag="div" to="/" class="back-home iconfont">&#xe624;</router-link>
+      都江堰
     </div>
   </div>
 </template>
@@ -34,7 +35,10 @@ export default {
       }
     }
   },
-  activated () {
+  mounted () {
+    window.addEventListener('scroll', this.handleClickFading)
+  },
+  beforeDestroy () {
     window.addEventListener('scroll', this.handleClickFading)
   }
 }
@@ -43,7 +47,7 @@ export default {
 <style lang="stylus" scoped>
   @import '~styles/varibles.styl'
   .detail-header
-    z-index:3
+    z-index:33
     position:fixed
     top:0
     left:0
@@ -51,6 +55,10 @@ export default {
     bottom:0
     height: $headerH
     background: $bgColor
+    text-align:center
+    line-height:$headerH
+    color:#fff
+    font-size:.34rem
     .back-home
       position:absolute
       top:.1rem

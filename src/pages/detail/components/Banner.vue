@@ -3,7 +3,7 @@
     <div class="wrapper-banner" @click="handleClickImgDetail">
       <img class="bannerImg" src="//img1.qunarzz.com/sight/p0/201403/10/1f873ebe7db4e41e31b2726c6a9e01a4.jpg_600x330_2d4f4fe7.jpg">
       <div class="title">花水湾第一村温泉</div>
-      <div class="num"><span class="arrow-address iconfont">&#xe623;</span>5</div>
+      <div class="num"><span class="num-img iconfont">&#xe67b;</span>5</div>
     </div>
     <common-gallary v-show="detailImg" @changeClose="handleClickImgClose"></common-gallary>
   </div>
@@ -62,4 +62,6 @@ export default {
         color:#fff
         background:rgba(0,0,0,.5)
         border-radius:.2rem
+        .num-img
+          margin-right:.1rem
 </style>
