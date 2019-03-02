@@ -1,6 +1,5 @@
 <template>
   <div class="wrapper">
-    <router-link tag="div" to="/" class="back-home iconfont">&#xe624;</router-link>
     <div class="wrapper-banner" @click="handleClickImgDetail">
       <img class="bannerImg" src="//img1.qunarzz.com/sight/p0/201403/10/1f873ebe7db4e41e31b2726c6a9e01a4.jpg_600x330_2d4f4fe7.jpg">
       <div class="title">花水湾第一村温泉</div>
@@ -36,19 +35,6 @@ export default {
 <style lang="stylus" scoped>
   .wrapper
     position: relative
-    .back-home
-      z-index:2
-      position:absolute
-      top:.1rem
-      left:.2rem
-      width:.72rem
-      height:.72rem
-      line-height:.72rem
-      border-radius:50%
-      background:rgba(0,0,0,.5rem)
-      text-align:center
-      font-size:0.44rem
-      color:#fff
     .wrapper-banner
       overflow:hidden
       width:100%
