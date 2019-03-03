@@ -1,11 +1,11 @@
 <template>
   <div class="wrapper">
     <div class="wrapper-banner" @click="handleClickImgDetail">
-      <img class="bannerImg" src="//img1.qunarzz.com/sight/p0/201403/10/1f873ebe7db4e41e31b2726c6a9e01a4.jpg_600x330_2d4f4fe7.jpg">
-      <div class="title">花水湾第一村温泉</div>
-      <div class="num"><span class="num-img iconfont">&#xe67b;</span>5</div>
+      <img class="bannerImg" :src="bannerImg">
+      <div class="title">{{this.bannerTitle}}</div>
+      <div class="num"><span class="num-img iconfont">&#xe67b;</span>{{num}}</div>
     </div>
-    <common-gallary v-show="detailImg" @changeClose="handleClickImgClose"></common-gallary>
+    <common-gallary v-show="detailImg" @changeClose="handleClickImgClose" :imgs="gallaryImgs"></common-gallary>
   </div>
 </template>
 
@@ -13,13 +13,23 @@
 import CommonGallary from 'common/gallary/Gallary'
 export default {
   name: 'detailBanner',
+  components: {
+    CommonGallary
+  },
+  props: {
+    bannerTitle: String,
+    bannerImg: String,
+    gallaryImgs: Array
+  },
   data () {
     return {
       detailImg: false
     }
   },
-  components: {
-    CommonGallary
+  computed: {
+    num () {
+      return this.gallaryImgs.length
+    }
   },
   methods: {
     handleClickImgDetail () {

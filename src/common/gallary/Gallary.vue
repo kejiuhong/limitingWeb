@@ -3,8 +3,8 @@
       <div class="imgDetail-wrapper">
         <swiper :options="swiperOption">
             <!-- slides -->
-          <swiper-slide v-for="item of imges" :key="item.id">
-            <img class="detail-img" :src="item.imgUrl">
+          <swiper-slide v-for="(item, index) of imgs" :key="index">
+            <img class="detail-img" :src="item">
           </swiper-slide>
             <!-- Optional controls -->
           <div class="swiper-pagination"  slot="pagination"></div>
@@ -16,6 +16,9 @@
 <script>
 export default {
   name: 'CommonGallary',
+  props: {
+    imgs: Array
+  },
   data () {
     return {
       swiperOption: {
@@ -25,12 +28,7 @@ export default {
         },
         observer: true,
         observeParents: true
-      },
-      imges: [
-        {id: '0001', imgUrl: 'http://img1.qunarzz.com/sight/p0/201403/10/f8495d302108ff902689880c553d4999.jpg_r_800x800_232f026a.jpg'}, {
-          id: '0002', imgUrl: 'http://img1.qunarzz.com/sight/p0/201403/10/46f7ef534be28a3ddc4678a1d89b83af.jpg_r_800x800_b27943ce.jpg'}, {
-          id: '0003', imgUrl: 'http://img1.qunarzz.com/sight/p0/201403/10/1f873ebe7db4e41e31b2726c6a9e01a4.jpg_r_800x800_4a36ea30.jpg'}
-      ]
+      }
     }
   },
   methods: {
