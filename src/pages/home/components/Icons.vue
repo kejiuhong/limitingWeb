@@ -48,6 +48,8 @@ export default {
     @import '~styles/mixins.styl'
     .icons-wrapper >>> .swiper-container
         height:4.56rem;
+    .icons-wrapper >>> .swiper-pagination-bullets
+        bottom: .6rem
     .icons-wrapper
         position:relative
         width:100%

@@ -80,9 +80,9 @@ export default {
       box-sizing:border-box
       width:100%
       height:.62rem
-      line-height:.62rem
-      padding:0 .1rem
+      padding:.12rem .1rem
       text-align:center
+      font-size: .28rem
       border-radius:.05rem
   .keyworld
     z-index:1

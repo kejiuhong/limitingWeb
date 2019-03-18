@@ -6,7 +6,7 @@
     <div class="list-content">
       <detail-list :list="List"></detail-list>
     </div>
-    <detail-common></detail-common>
+    <detail-comment :comment="comment"></detail-comment>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ import DetailBanner from './components/Banner'
 import DetailHeader from './components/Header'
 import DetailBrief from './components/Brief'
 import DetailList from './components/List'
-import DetailCommon from './components/Common'
+import DetailComment from './components/Comment'
 export default {
   name: 'Detail',
   data () {
@@ -24,7 +24,8 @@ export default {
       bannerName: '',
       bannerImg: '',
       gallaryImgs: [],
-      List: []
+      List: [],
+      comment: []
     }
   },
   components: {
@@ -32,7 +33,7 @@ export default {
     DetailHeader,
     DetailBrief,
     DetailList,
-    DetailCommon
+    DetailComment
   },
   methods: {
     detailGetIfo () {
@@ -48,6 +49,7 @@ export default {
         this.bannerImg = data.bannerImg
         this.gallaryImgs = data.gallaryImgs
         this.List = data.categoryList
+        this.comment = data.comment
       }
     }
   },

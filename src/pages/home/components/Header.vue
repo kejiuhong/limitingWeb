@@ -30,38 +30,38 @@ export default {
 <style lang="stylus" scoped>
     @import '~styles/varibles.styl'
     .header
+      position:relative
+      width:100%
+      height:$headerH
+      display:flex
+      background:$bgColor
+      height:0
+      padding-bottom:.93rem
+      line-height:.93rem
+      color:#fff
+      font-size:0.32rem
+      .header-left
+        width:0.78rem
+        text-align:center
+        .back-icon
+          font-size:0.44rem
+      .header-search
+        flex:1
         width:100%
-        height:$headerH
-        display:flex
-        background:$bgColor
         height:0
-        padding-bottom:.93rem
-        line-height:.93rem
-        color:#fff
-        font-size:0.32rem
+        padding-bottom:.62rem
+        line-height:.62rem
+        padding-left:.04rem
+        background:#fff
+        border-radius:.1rem
+        color:$textColor
+        font-size:.24rem
         position:relative
-        .header-left
-            width:0.78rem
-            text-align:center
-            .back-icon
-                font-size:0.44rem
-        .header-search
-            flex:1
-            width:100%
-            height:0
-            padding-bottom:.62rem
-            line-height:.62rem
-            padding-left:.04rem
-            background:#fff
-            border-radius:.1rem
-            color:$textColor
-            font-size:.24rem
-            position:relative
-            top:.15rem
-        .header-address
-            padding:0 .1rem
-            min-width:1.32rem
-            text-align:center
-            color:#fff
-            font-size:.28rem
+        top:.15rem
+      .header-address
+        padding:0 .1rem
+        min-width:1.32rem
+        text-align:center
+        color:#fff
+        font-size:.28rem
 </style>

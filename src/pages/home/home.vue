@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="home-wrapper">
         <home-header :city="city"></home-header>
         <home-swiper :swiper="swiperList"></home-swiper>
         <home-icon :icons="iconList"></home-icon>
@@ -70,6 +70,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="stylus" scoped>
+@import '~styles/mixins.styl'
+.home-wrapper
+  wrapper()
 </style>
