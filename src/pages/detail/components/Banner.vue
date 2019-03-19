@@ -5,16 +5,20 @@
       <div class="title">{{this.bannerTitle}}</div>
       <div class="num"><span class="num-img iconfont">&#xe67b;</span>{{num}}</div>
     </div>
-    <common-gallary v-show="detailImg" @changeClose="handleClickImgClose" :imgs="gallaryImgs"></common-gallary>
+    <transition-animate>
+      <common-gallary v-show="detailImg" @changeClose="handleClickImgClose" :imgs="gallaryImgs"></common-gallary>
+    </transition-animate>
   </div>
 </template>
 
 <script>
 import CommonGallary from 'common/gallary/Gallary'
+import TransitionAnimate from 'common/gallary/TransitionAnimate'
 export default {
   name: 'detailBanner',
   components: {
-    CommonGallary
+    CommonGallary,
+    TransitionAnimate
   },
   props: {
     bannerTitle: String,

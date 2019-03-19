@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-link tag="div" to="/" class="back-home-banner iconfont" v-if="backhomeFading">&#xe624;</router-link>
-    <div class="detail-header" v-if="headerFading" :style="opacityStyle">
+    <div class="detail-header" v-show="headerFading" :style="opacityStyle">
       <router-link tag="div" to="/" class="back-home iconfont">&#xe624;</router-link>
       都江堰
     </div>
@@ -22,7 +22,8 @@ export default {
   },
   methods: {
     handleClickFading () {
-      const offTop = document.documentElement.scrollTop
+      const offTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop
+      // document.documentElement.scrollTop手机上获取的滚动距离是0，做了兼容，真机测试时才会出现效果
       // console.log(offTop)
       if (offTop > 60) {
         let opacity = offTop / 250
@@ -38,7 +39,7 @@ export default {
   mounted () {
     window.addEventListener('scroll', this.handleClickFading)
   },
-  beforeDestroy () {
+  activated () {
     window.addEventListener('scroll', this.handleClickFading)
   }
 }

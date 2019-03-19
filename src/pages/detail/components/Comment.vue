@@ -12,6 +12,7 @@
         </ul>
       </div>
     </div>
+    <div class="end">in the end</div>
   </div>
 </template>
 
@@ -28,7 +29,9 @@ export default {
   @import '~styles/varibles.styl'
   .comment-wrapper
     overflow:hidden
+    position: relative
     margin-top:.2rem
+    margin-bottom: .2rem
     padding:0 .2rem
     background:#fff
     .comment-title
@@ -71,4 +74,10 @@ export default {
           img
             width:100%
             vercity-align:middle
+    .end
+      width:100%
+      margin-bottom:.2rem
+      text-align:center
+      color: #eee
+      font-size: .28rem
 </style>
